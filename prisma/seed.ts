@@ -54,13 +54,13 @@ async function main() {
     data: {
       name: '한가람 제육볶음',
       description: '불맛 코팅 제대로 입힌 매콤 달콤한 밥도둑 제육볶음 전문점',
-      imageUrl: 'https://images.unsplash.com/photo-1598908314732-07113901949e?w=500&auto=format&fit=crop&q=60',
+      imageUrl: '/delicious_jeyuk.png', // 제육볶음 전용 고화질 이미지
       category: '한식',
       menus: {
         create: [
-          { name: '매콤 불 제육볶음', price: 9500, description: '화끈한 매운맛과 화려한 불향의 불제육', imageUrl: 'https://images.unsplash.com/photo-1598908314732-07113901949e?w=500&auto=format&fit=crop&q=60' },
-          { name: '달콤 단짠 간장제육', price: 9500, description: '아이들도 좋아하는 맵지 않은 마늘 간장 베이스 제육', imageUrl: 'https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=500&auto=format&fit=crop&q=60' },
-          { name: '직화 오징어제육 믹스', price: 11000, description: '신선한 탱글탱글 오징어와 제육의 환상 조합', imageUrl: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=500&auto=format&fit=crop&q=60' }
+          { name: '매콤 불 제육볶음', price: 9500, description: '화끈한 매운맛과 화려한 불향의 불제육', imageUrl: '/delicious_jeyuk.png' },
+          { name: '달콤 단짠 간장제육', price: 9500, description: '아이들도 좋아하는 맵지 않은 마늘 간장 베이스 제육', imageUrl: '/delicious_jeyuk.png' },
+          { name: '직화 오징어제육 믹스', price: 11000, description: '신선한 탱글탱글 오징어와 제육의 환상 조합', imageUrl: '/delicious_jeyuk.png' }
         ]
       }
     }
@@ -70,13 +70,13 @@ async function main() {
     data: {
       name: '가마솥 전통 국밥',
       description: '진하게 우려낸 고기 육수와 든든한 머리고기가 가득한 국밥집',
-      imageUrl: 'https://images.unsplash.com/photo-1547928576-a4a33237eceb?w=500&auto=format&fit=crop&q=60',
+      imageUrl: '/delicious_gukbab.png', // 국밥 전용 고화질 이미지
       category: '한식',
       menus: {
         create: [
-          { name: '부산식 돼지국밥', price: 8500, description: '뽀얀 사골 육수에 고기가 듬뿍 들어간 오리지널 국밥', imageUrl: 'https://images.unsplash.com/photo-1547928576-a4a33237eceb?w=500&auto=format&fit=crop&q=60' },
-          { name: '얼큰 순대국밥', price: 9000, description: '속이 꽉 찬 토종 순대와 칼칼한 양념의 국밥', imageUrl: 'https://images.unsplash.com/photo-1547625125-e1247bf8440d?w=500&auto=format&fit=crop&q=60' },
-          { name: '소고기 장터국밥', price: 10000, description: '소고기와 시원한 무를 넣고 푹 끓여낸 육개장 풍 국밥', imageUrl: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=500&auto=format&fit=crop&q=60' }
+          { name: '부산식 돼지국밥', price: 8500, description: '뽀얀 사골 육수에 고기가 듬뿍 들어간 오리지널 국밥', imageUrl: '/delicious_gukbab.png' },
+          { name: '얼큰 순대국밥', price: 9000, description: '속이 꽉 찬 토종 순대와 칼칼한 양념의 국밥', imageUrl: '/delicious_gukbab.png' },
+          { name: '소고기 장터국밥', price: 10000, description: '소고기와 시원한 무를 넣고 푹 끓여낸 육개장 풍 국밥', imageUrl: '/delicious_gukbab.png' }
         ]
       }
     }
@@ -118,13 +118,13 @@ async function main() {
     data: {
       name: '전주 비빔밥 가옥',
       description: '다양한 신선 나물과 정성이 깃든 한국 전통 비빔밥 전문점',
-      imageUrl: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&auto=format&fit=crop&q=60',
+      imageUrl: '/delicious_bibimbap.png', // 비빔밥 전용 고화질 이미지
       category: '한식',
       menus: {
         create: [
-          { name: '전주 전통 비빔밥', price: 9000, description: '오색 나물과 전통 고추장 소스로 비벼먹는 전통 비빔밥', imageUrl: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&auto=format&fit=crop&q=60' },
-          { name: '돌솥 낙지 비빔밥', price: 11000, description: '매콤하게 볶은 통통한 낙지를 올린 뜨끈한 돌솥 비빔밥', imageUrl: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=500&auto=format&fit=crop&q=60' },
-          { name: '뚝배기 소불고기', price: 10000, description: '달콤 짭조름한 양념의 소불고기와 당면이 뚝배기에 듬뿍', imageUrl: 'https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=500&auto=format&fit=crop&q=60' }
+          { name: '전주 전통 비빔밥', price: 9000, description: '오색 나물과 전통 고추장 소스로 비벼먹는 전통 비빔밥', imageUrl: '/delicious_bibimbap.png' },
+          { name: '돌솥 낙지 비빔밥', price: 11000, description: '매콤하게 볶은 통통한 낙지를 올린 뜨끈한 돌솥 비빔밥', imageUrl: '/delicious_bibimbap.png' },
+          { name: '뚝배기 소불고기', price: 10000, description: '달콤 짭조름한 양념의 소불고기와 당면이 뚝배기에 듬뿍', imageUrl: '/delicious_bibimbap.png' }
         ]
       }
     }
@@ -188,7 +188,7 @@ async function main() {
       category: '중식',
       menus: {
         create: [
-          { name: '베이징덕 쌈 (1인분)', price: 18000, description: '화덕 오리 껍질과 살코기를 밀전병에 파채와 싸먹는 요리', imageUrl: 'https://images.unsplash.com/photo-1525755662778-989d0524087e?w=500&auto=format&fit=crop&q=60' },
+          { name: '베이징덕 쌈 (1인분)', price: 18000, description: '화덕 오리 껍질และ 살코기를 밀전병에 파채와 싸먹는 요리', imageUrl: 'https://images.unsplash.com/photo-1525755662778-989d0524087e?w=500&auto=format&fit=crop&q=60' },
           { name: '해물 누룽지탕', price: 20000, description: '구수한 누룽지 위에 각종 신선 해물과 걸쭉한 소스', imageUrl: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500&auto=format&fit=crop&q=60' },
           { name: '매콤 칠리새우', price: 16000, description: '통통한 새우를 바삭하게 튀겨 매콤달콤 칠리소스에 버무린 요리', imageUrl: 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=500&auto=format&fit=crop&q=60' }
         ]
@@ -577,7 +577,7 @@ async function main() {
   await prisma.restaurant.create({
     data: {
       name: '버거 캐슬',
-      description: '두툼한 패티와 폭신한 번으로 만드는 정통 어메리칸 버거 브랜드',
+      description: '두툼한 패티 and 폭신한 번으로 만드는 정통 어메리칸 버거 브랜드',
       imageUrl: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&auto=format&fit=crop&q=60',
       category: '햄버거',
       menus: {

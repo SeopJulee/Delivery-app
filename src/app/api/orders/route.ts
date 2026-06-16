@@ -14,6 +14,17 @@ export async function POST(request: Request) {
       );
     }
 
+    // 세션 동기화 검증 (재시딩 등으로 세션 유저 ID가 DB에 없는 경우 처리)
+    const dbUser = await prisma.user.findUnique({
+      where: { id: session.id },
+    });
+    if (!dbUser) {
+      return NextResponse.json(
+        { error: '존재하지 않거나 만료된 회원 세션입니다. 로그아웃 후 다시 로그인해 주세요.' },
+        { status: 401 }
+      );
+    }
+
     const { items } = await request.json(); // items: Array<{ menuId: number, quantity: number }>
 
     if (!items || items.length === 0) {

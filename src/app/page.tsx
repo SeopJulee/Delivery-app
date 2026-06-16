@@ -141,62 +141,64 @@ export default function Home() {
             )}
           </div>
 
-          {/* 선택한 식당의 메뉴 목록 (밑에 부드럽게 펼쳐짐) */}
+          {/* 선택한 식당의 메뉴 목록 (모달 팝업으로 띄우기) */}
           {selectedRestaurant && (
-            <div id="menus-section" className="menu-section">
-              <div className="menu-section-header">
-                <div>
-                  <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', fontWeight: 600 }}>
-                    🍔 {selectedRestaurant.name} 메뉴판
-                  </h2>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>
-                    원하는 메뉴를 장바구니에 담아 주문을 진행해 보세요!
-                  </p>
+            <div className="modal-overlay" onClick={() => setSelectedRestaurant(null)}>
+              <div className="menu-modal" onClick={(e) => e.stopPropagation()}>
+                <div className="menu-section-header">
+                  <div>
+                    <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '1.6rem', fontWeight: 600 }}>
+                      🍔 {selectedRestaurant.name} 메뉴판
+                    </h2>
+                    <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginTop: '4px' }}>
+                      원하는 메뉴를 장바구니에 담아 주문을 진행해 보세요!
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => setSelectedRestaurant(null)}
+                    className="btn btn-secondary"
+                    style={{ padding: '0.5rem 1rem', fontSize: '0.9rem', borderRadius: 'var(--radius-sm)' }}
+                  >
+                    닫기 ✕
+                  </button>
                 </div>
-                <button
-                  onClick={() => setSelectedRestaurant(null)}
-                  className="btn btn-secondary"
-                  style={{ padding: '0.4rem 0.8rem', fontSize: '0.85rem' }}
-                >
-                  메뉴 닫기
-                </button>
-              </div>
 
-              <div className="menu-grid">
-                {selectedRestaurant.menus.map((menu) => (
-                  <div key={menu.id} className="menu-card">
-                    <img src={menu.imageUrl} alt={menu.name} className="menu-img" />
-                    <div className="menu-content">
-                      <h4 className="menu-title">{menu.name}</h4>
-                      <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.4, height: '40px', overflow: 'hidden' }}>
-                        {menu.description}
-                      </p>
-                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto', paddingTop: '10px' }}>
-                        <span className="menu-price">
-                          {menu.price.toLocaleString()}원
-                        </span>
-                        <button
-                          onClick={() => {
-                            const success = addToCart({
-                              id: menu.id,
-                              name: menu.name,
-                              price: menu.price,
-                              restaurantId: selectedRestaurant.id,
-                              restaurantName: selectedRestaurant.name,
-                            });
-                            if (success) {
-                              showToast(`${menu.name}이(가) 장바구니에 담겼습니다!`);
-                            }
-                          }}
-                          className="btn btn-primary"
-                          style={{ padding: '0.4rem 0.8rem', fontSize: '0.85rem', borderRadius: 'var(--radius-sm)' }}
-                        >
-                          + 담기
-                        </button>
+                <div className="menu-grid">
+                  {selectedRestaurant.menus.map((menu) => (
+                    <div key={menu.id} className="menu-card">
+                      <img src={menu.imageUrl} alt={menu.name} className="menu-img" />
+                      <div className="menu-content">
+                        <h4 className="menu-title">{menu.name}</h4>
+                        <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.4, height: '40px', overflow: 'hidden' }}>
+                          {menu.description}
+                        </p>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 'auto', paddingTop: '10px' }}>
+                          <span className="menu-price">
+                            {menu.price.toLocaleString()}원
+                          </span>
+                          <button
+                            onClick={() => {
+                              const success = addToCart({
+                                id: menu.id,
+                                name: menu.name,
+                                price: menu.price,
+                                restaurantId: selectedRestaurant.id,
+                                restaurantName: selectedRestaurant.name,
+                              });
+                              if (success) {
+                                showToast(`${menu.name}이(가) 장바구니에 담겼습니다!`);
+                              }
+                            }}
+                            className="btn btn-primary"
+                            style={{ padding: '0.4rem 0.8rem', fontSize: '0.85rem', borderRadius: 'var(--radius-sm)' }}
+                          >
+                            + 담기
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           )}
