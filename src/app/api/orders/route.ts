@@ -35,7 +35,7 @@ export async function POST(request: Request) {
     }
 
     // 1-2. 클라이언트 가격 변조 방지를 위해 DB에서 실시간 메뉴 정보 조회
-    const menuIds = items.map((item: any) => item.menuId);
+    const menuIds = items.map((item: { menuId: number; quantity: number }) => item.menuId);
     const dbMenus = await prisma.menu.findMany({
       where: { id: { in: menuIds } },
     });
@@ -91,7 +91,7 @@ export async function POST(request: Request) {
       { message: '주문이 성공적으로 완료되었습니다.', orderId: newOrder.id },
       { status: 201 }
     );
-  } catch (error: any) {
+  } catch (error) {
     console.error('주문 처리 중 에러:', error);
     return NextResponse.json(
       { error: '주문 처리 중 오류가 발생했습니다.' },
@@ -132,7 +132,7 @@ export async function GET() {
     });
 
     return NextResponse.json(orders);
-  } catch (error: any) {
+  } catch (error) {
     console.error('주문 내역 조회 에러:', error);
     return NextResponse.json(
       { error: '주문 내역을 불러오는 중 오류가 발생했습니다.' },
