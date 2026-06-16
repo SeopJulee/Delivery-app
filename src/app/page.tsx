@@ -26,6 +26,15 @@ export default function Home() {
   const [selectedCategory, setSelectedCategory] = useState('전체');
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [toasts, setToasts] = useState<{ id: number; message: string }[]>([]);
+
+  const showToast = (message: string) => {
+    const id = Date.now();
+    setToasts((prev) => [...prev, { id, message }]);
+    setTimeout(() => {
+      setToasts((prev) => prev.filter((t) => t.id !== id));
+    }, 2000);
+  };
 
   // 식당 및 메뉴 목록 가져오기 (카테고리 필터 포함)
   const fetchRestaurants = async (category: string) => {
@@ -65,10 +74,10 @@ export default function Home() {
       {/* 히어로 타이틀 */}
       <div style={{ textAlign: 'center', margin: '2rem 0 3rem' }}>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 700, marginBottom: '0.8rem' }}>
-          맛있는 음식을 <span style={{ color: 'var(--primary)' }}>바이브있게</span> 주문하세요
+          부경대 맛집을 <span style={{ color: 'var(--primary)' }}>스마트하게</span> 주문하세요
         </h1>
         <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>
-          Next.js 풀스택 기술과 Neon DB로 작동하는 최신 스마트 배달 주문 시스템
+          Next.js 풀스택 기술과 Neon DB로 작동하는 부경대학교 맞춤형 배달 서비스 '부경이츠'
         </p>
       </div>
 
@@ -159,15 +168,18 @@ export default function Home() {
                           {menu.price.toLocaleString()}원
                         </span>
                         <button
-                          onClick={() =>
-                            addToCart({
+                          onClick={() => {
+                            const success = addToCart({
                               id: menu.id,
                               name: menu.name,
                               price: menu.price,
                               restaurantId: selectedRestaurant.id,
                               restaurantName: selectedRestaurant.name,
-                            })
-                          }
+                            });
+                            if (success) {
+                              showToast(`${menu.name}이(가) 장바구니에 담겼습니다!`);
+                            }
+                          }}
                           className="btn btn-primary"
                           style={{ padding: '0.4rem 0.8rem', fontSize: '0.85rem', borderRadius: 'var(--radius-sm)' }}
                         >
@@ -182,6 +194,15 @@ export default function Home() {
           )}
         </>
       )}
+      {/* 토스트 알림 컨테이너 */}
+      <div className="toast-container">
+        {toasts.map((t) => (
+          <div key={t.id} className="toast">
+            <span className="toast-icon">✨</span>
+            <span>{t.message}</span>
+          </div>
+        ))}
+      </div>
     </main>
   );
 }

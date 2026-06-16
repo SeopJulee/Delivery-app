@@ -110,7 +110,7 @@ export default function Header() {
       <header>
         <div className="header-container">
           <Link href="/" className="logo">
-            <span>바이브 배달</span> 🛵
+            <span>부경이츠</span> 🛵
           </Link>
 
           <div className="nav-links">

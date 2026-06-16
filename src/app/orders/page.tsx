@@ -54,10 +54,56 @@ export default function Orders() {
     fetchOrders();
   }, []);
 
+  // 주문 상태 자동 시뮬레이션 타이머 (5~10초 요리시작 -> 20초 배달중 -> 10초 완료 데모 흐름 구현)
+  useEffect(() => {
+    if (orders.length === 0) return;
+
+    const timers: NodeJS.Timeout[] = [];
+
+    orders.forEach((order) => {
+      if (order.status === '접수') {
+        const timer = setTimeout(() => {
+          simulateStatusChange(order.id, '접수');
+        }, 7000); // 7초 뒤 요리시작
+        timers.push(timer);
+      } else if (order.status === '요리시작') {
+        const timer = setTimeout(() => {
+          simulateStatusChange(order.id, '요리시작');
+        }, 20000); // 20초 뒤 배달중
+        timers.push(timer);
+      } else if (order.status === '배달중') {
+        const timer = setTimeout(() => {
+          simulateStatusChange(order.id, '배달중');
+        }, 10000); // 10초 뒤 완료
+        timers.push(timer);
+      }
+    });
+
+    return () => {
+      timers.forEach((t) => clearTimeout(t));
+    };
+  }, [orders]);
+
+  const getStatusIcon = (status: string) => {
+    switch (status) {
+      case '접수':
+        return <span className="animate-receipt" style={{ marginRight: '6px' }}>🧾</span>;
+      case '요리시작':
+        return <span className="animate-wok" style={{ marginRight: '6px' }}>🍳</span>;
+      case '배달중':
+        return <span className="animate-bike" style={{ marginRight: '6px' }}>🛵</span>;
+      case '완료':
+        return <span className="animate-food" style={{ marginRight: '6px' }}>🍔</span>;
+      default:
+        return null;
+    }
+  };
+
   // 주문 상태 시뮬레이션 토글 함수 (가산점 및 시연용 핵심 개발자 도구!)
   const simulateStatusChange = async (orderId: number, currentStatus: string) => {
     let nextStatus = '접수';
-    if (currentStatus === '접수') nextStatus = '배달중';
+    if (currentStatus === '접수') nextStatus = '요리시작';
+    else if (currentStatus === '요리시작') nextStatus = '배달중';
     else if (currentStatus === '배달중') nextStatus = '완료';
     else if (currentStatus === '완료') nextStatus = '접수';
 
@@ -134,7 +180,8 @@ export default function Orders() {
                 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                   {/* 상태 뱃지 */}
-                  <span className={`order-status-badge status-${order.status}`}>
+                  <span className={`order-status-badge status-${order.status}`} style={{ display: 'flex', alignItems: 'center' }}>
+                    {getStatusIcon(order.status)}
                     {order.status}
                   </span>
                   
@@ -163,11 +210,18 @@ export default function Orders() {
               </div>
 
               {/* 영수증 하단 총합 */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--border-light)', paddingTop: '1rem', marginTop: '1rem' }}>
-                <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>주문 번호: #{order.id}</span>
-                <span style={{ fontSize: '1.25rem', fontWeight: 700 }}>
-                  총 <span style={{ color: 'var(--primary)' }}>{order.totalPrice.toLocaleString()}원</span>
-                </span>
+              <div style={{ display: 'flex', flexDirection: 'column', borderTop: '1px solid var(--border-light)', paddingTop: '1rem', marginTop: '1rem', gap: '8px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>주문 번호: #{order.id}</span>
+                  <span style={{ fontSize: '1.25rem', fontWeight: 700 }}>
+                    총 <span style={{ color: 'var(--primary)' }}>{order.totalPrice.toLocaleString()}원</span>
+                  </span>
+                </div>
+                {order.status === '완료' && (
+                  <div style={{ textAlign: 'right', fontSize: '0.95rem', color: 'var(--success)', fontWeight: 600, animation: 'fadeIn 0.5s ease-out' }}>
+                    ✨ 맛있게 드세요! ❤️
+                  </div>
+                )}
               </div>
             </div>
           );

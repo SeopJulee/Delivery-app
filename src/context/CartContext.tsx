@@ -13,7 +13,7 @@ export interface CartItem {
 
 interface CartContextType {
   cart: CartItem[];
-  addToCart: (item: Omit<CartItem, 'quantity'>) => void;
+  addToCart: (item: Omit<CartItem, 'quantity'>) => boolean;
   removeFromCart: (menuId: number) => void;
   updateQuantity: (menuId: number, quantity: number) => void;
   clearCart: () => void;
@@ -45,15 +45,16 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   };
 
   // 3. 장바구니 추가 (다른 식당 메뉴 추가 차단 로직 포함)
-  const addToCart = (newItem: Omit<CartItem, 'quantity'>) => {
+  const addToCart = (newItem: Omit<CartItem, 'quantity'>): boolean => {
     if (cart.length > 0 && cart[0].restaurantId !== newItem.restaurantId) {
       const confirmClear = window.confirm(
         `장바구니에는 같은 식당의 메뉴만 담을 수 있습니다.\n기존 식당(${cart[0].restaurantName})의 장바구니를 비우고 '${newItem.restaurantName}'의 메뉴를 새로 담으시겠습니까?`
       );
       if (confirmClear) {
         saveCart([{ ...newItem, quantity: 1 }]);
+        return true;
       }
-      return;
+      return false;
     }
 
     const existingIndex = cart.findIndex((item) => item.id === newItem.id);
@@ -64,6 +65,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     } else {
       saveCart([...cart, { ...newItem, quantity: 1 }]);
     }
+    return true;
   };
 
   // 4. 장바구니 제거
