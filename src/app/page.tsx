@@ -74,22 +74,30 @@ export default function Home() {
       {/* 히어로 타이틀 */}
       <div style={{ textAlign: 'center', margin: '2rem 0 3rem' }}>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 700, marginBottom: '0.8rem' }}>
-          부경대 맛집을 <span style={{ color: 'var(--primary)' }}>스마트하게</span> 주문하세요
+          맛있는 음식을 <span style={{ color: 'var(--primary)' }}>스마트하게</span> 주문하세요
         </h1>
         <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem' }}>
-          Next.js 풀스택 기술과 Neon DB로 작동하는 부경대학교 맞춤형 배달 서비스 '부경이츠'
+          Next.js 풀스택 기술과 Neon DB로 작동하는 최신 배달 주문 서비스 '부경이츠'
         </p>
       </div>
 
       {/* 카테고리 탭 (가산점 기능) */}
       <div className="category-tabs">
-        {['전체', '중식', '일식', '멕시칸'].map((cat) => (
+        {['전체', '한식', '중식', '일식', '치킨', '분식', '멕시칸', '햄버거', '디저트'].map((cat) => (
           <button
             key={cat}
             onClick={() => handleCategoryChange(cat)}
             className={`tab ${selectedCategory === cat ? 'active' : ''}`}
           >
-            {cat === '전체' ? '🍔 전체보기' : cat === '중식' ? '🍜 중식' : cat === '일식' ? '🍣 일식' : '🌮 멕시칸'}
+            {cat === '전체' ? '🍔 전체보기' :
+             cat === '한식' ? '🍚 한식' :
+             cat === '중식' ? '🍜 중식' :
+             cat === '일식' ? '🍣 일식' :
+             cat === '치킨' ? '🍗 치킨' :
+             cat === '분식' ? '🍢 분식' :
+             cat === '멕시칸' ? '🌮 멕시칸' :
+             cat === '햄버거' ? '🍔 햄버거' :
+             '🍰 디저트'}
           </button>
         ))}
       </div>
