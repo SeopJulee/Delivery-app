@@ -38,13 +38,13 @@ async function main() {
     data: {
       name: '종가집 김치찌개 전문',
       description: '푹 익은 묵은지와 국산 돼지고기로 깊은 맛을 낸 정통 김치찌개',
-      imageUrl: 'https://images.unsplash.com/photo-1627308595260-6bab84c194bc?w=500&auto=format&fit=crop&q=60',
+      imageUrl: '/delicious_kimchi.png', // 김치찌개 전용 고화질 이미지
       category: '한식',
       menus: {
         create: [
-          { name: '돼지고기 듬뿍 김치찌개', price: 9000, description: '부드러운 돼지 앞다리살이 가득 들어간 베스트 메뉴', imageUrl: 'https://images.unsplash.com/photo-1627308595260-6bab84c194bc?w=500&auto=format&fit=crop&q=60' },
-          { name: '참치 반반 김치찌개', price: 9000, description: '고소한 참치와 깔끔한 국물 맛의 만남', imageUrl: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&auto=format&fit=crop&q=60' },
-          { name: '햄소시지 부대김치찌개', price: 9500, description: '부대찌개 스타일로 즐기는 푸짐한 김치찌개', imageUrl: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=500&auto=format&fit=crop&q=60' }
+          { name: '돼지고기 듬뿍 김치찌개', price: 9000, description: '부드러운 돼지 앞다리살이 가득 들어간 베스트 메뉴', imageUrl: '/delicious_kimchi.png' },
+          { name: '참치 반반 김치찌개', price: 9000, description: '고소한 참치와 깔끔한 국물 맛의 만남', imageUrl: '/delicious_kimchi.png' },
+          { name: '햄소시지 부대김치찌개', price: 9500, description: '부대찌개 스타일로 즐기는 푸짐한 김치찌개', imageUrl: '/delicious_kimchi.png' }
         ]
       }
     }
@@ -188,7 +188,7 @@ async function main() {
       category: '중식',
       menus: {
         create: [
-          { name: '베이징덕 쌈 (1인분)', price: 18000, description: '화덕 오리 껍질และ 살코기를 밀전병에 파채와 싸먹는 요리', imageUrl: 'https://images.unsplash.com/photo-1525755662778-989d0524087e?w=500&auto=format&fit=crop&q=60' },
+          { name: '베이징덕 쌈 (1인분)', price: 18000, description: '화덕 오리 껍질과 살코기를 밀전병에 파채와 싸먹는 요리', imageUrl: 'https://images.unsplash.com/photo-1525755662778-989d0524087e?w=500&auto=format&fit=crop&q=60' },
           { name: '해물 누룽지탕', price: 20000, description: '구수한 누룽지 위에 각종 신선 해물과 걸쭉한 소스', imageUrl: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=500&auto=format&fit=crop&q=60' },
           { name: '매콤 칠리새우', price: 16000, description: '통통한 새우를 바삭하게 튀겨 매콤달콤 칠리소스에 버무린 요리', imageUrl: 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=500&auto=format&fit=crop&q=60' }
         ]
@@ -217,7 +217,7 @@ async function main() {
     data: {
       name: '성철 반점',
       description: '신선한 식재료로 정성을 다해 요리하는 정통 중화요리 전문점',
-      imageUrl: 'https://images.unsplash.com/photo-1627308595229-7830a5c91f9f?w=500&auto=format&fit=crop&q=60',
+      imageUrl: '/restaurant_seongcheol.png', // 중국요리 전문점 느낌의 맛있는 중식 한상 이미지로 교체
       category: '중식',
       menus: {
         create: [
@@ -231,7 +231,7 @@ async function main() {
             name: '대마왕 짜장면', 
             price: 8000, 
             description: '윤기가 좌르르 흐르는 진한 춘장 소스의 진짜 맛있는 짜장면', 
-            imageUrl: '/delicious_jajangmyeon.png' // 생성한 고품질 짜장면 이미지 경로로 설정
+            imageUrl: '/delicious_jajangmyeon.png' 
           },
           { 
             name: '바삭 바삭 꿔바로우', 
@@ -430,13 +430,13 @@ async function main() {
     data: {
       name: '신선 떡볶이 연구소',
       description: '텁텁하지 않고 깔끔하고 시원한 비법 양념 국물 떡볶이',
-      imageUrl: 'https://images.unsplash.com/photo-1664984457497-6a152d0fa557?w=500&auto=format&fit=crop&q=60',
+      imageUrl: '/delicious_tteokbokki.png', // 떡볶이 전용 고화질 이미지
       category: '분식',
       menus: {
         create: [
-          { name: '매콤 국물 떡볶이 (2인분)', price: 12000, description: '달짝지근 매콤한 국물에 어묵과 밀떡이 듬뿍', imageUrl: 'https://images.unsplash.com/photo-1664984457497-6a152d0fa557?w=500&auto=format&fit=crop&q=60' },
-          { name: '치즈 폭포 떡볶이', price: 15000, description: '모짜렐라 치즈가 그릇을 가득 덮고 흘러내리는 떡볶이', imageUrl: 'https://images.unsplash.com/photo-1541832676-9b763b0239ab?w=500&auto=format&fit=crop&q=60' },
-          { name: '로제 크림 떡볶이', price: 14000, description: '부드러운 생크림과 매콤한 떡볶이 소스의 크리미한 조합', imageUrl: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=500&auto=format&fit=crop&q=60' }
+          { name: '매콤 국물 떡볶이 (2인분)', price: 12000, description: '달짝지근 매콤한 국물에 어묵 and 밀떡이 듬뿍', imageUrl: '/delicious_tteokbokki.png' },
+          { name: '치즈 폭포 떡볶이', price: 15000, description: '모짜렐라 치즈가 그릇을 가득 덮고 흘러내리는 떡볶이', imageUrl: '/delicious_tteokbokki.png' },
+          { name: '로제 크림 떡볶이', price: 14000, description: '부드러운 생크림과 매콤한 떡볶이 소스의 크리미한 조합', imageUrl: '/delicious_tteokbokki.png' }
         ]
       }
     }
@@ -478,13 +478,13 @@ async function main() {
     data: {
       name: '명동 칼국수',
       description: '진한 사골 육수에 손수 밀어 만든 부드러운 칼국수 전문점',
-      imageUrl: 'https://images.unsplash.com/photo-1547928576-a4a33237eceb?w=500&auto=format&fit=crop&q=60',
+      imageUrl: '/delicious_kalguksu.png', // 칼국수 전용 고화질 이미지
       category: '분식',
       menus: {
         create: [
-          { name: '수제 칼국수', price: 8000, description: '부드러운 면발과 뽀얗고 고소한 사골 육수가 매력적인 칼국수', imageUrl: 'https://images.unsplash.com/photo-1547928576-a4a33237eceb?w=500&auto=format&fit=crop&q=60' },
-          { name: '평양식 왕만두', price: 8500, description: '고기와 신선한 두부, 부추로 속을 꽉 채운 담백한 평양식 왕만두', imageUrl: 'https://images.unsplash.com/photo-1496116218417-1a781b1c416c?w=500&auto=format&fit=crop&q=60' },
-          { name: '새콤달콤 비빔국수', price: 8000, description: '새콤한 비빔 양념 소스에 야채와 소면을 쫄깃하게 비벼낸 국수', imageUrl: 'https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?w=500&auto=format&fit=crop&q=60' }
+          { name: '수제 칼국수', price: 8000, description: '부드러운 면발과 뽀얗고 고소한 사골 육수가 매력적인 칼국수', imageUrl: '/delicious_kalguksu.png' },
+          { name: '평양식 왕만두', price: 8500, description: '고기와 신선한 두부, 부추로 속을 꽉 채운 담백한 평양식 왕만두', imageUrl: '/delicious_kalguksu.png' },
+          { name: '새콤달콤 비빔국수', price: 8000, description: '새콤한 비빔 양념 소스에 야채와 소면을 쫄깃하게 비벼낸 국수', imageUrl: '/delicious_kalguksu.png' }
         ]
       }
     }
@@ -577,7 +577,7 @@ async function main() {
   await prisma.restaurant.create({
     data: {
       name: '버거 캐슬',
-      description: '두툼한 패티 and 폭신한 번으로 만드는 정통 어메리칸 버거 브랜드',
+      description: '두툼한 패티와 폭신한 번으로 만드는 정통 어메리칸 버거 브랜드',
       imageUrl: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500&auto=format&fit=crop&q=60',
       category: '햄버거',
       menus: {
