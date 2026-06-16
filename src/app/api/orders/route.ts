@@ -33,7 +33,7 @@ export async function POST(request: Request) {
     const menuMap = new Map(dbMenus.map((menu) => [menu.id, menu]));
 
     let calculatedTotalPrice = 0;
-    const orderItemsData = [];
+    const orderItemsData: { menuId: number; quantity: number; price: number }[] = [];
 
     // 주문 상세 데이터 빌드 및 총액 계산
     for (const item of items) {
