@@ -407,22 +407,22 @@ async function main() {
       }
     }
   });
-
   await prisma.restaurant.create({
     data: {
       name: '숯불 바베큐 치킨',
       description: '화끈한 직화 숯불구이로 구워 기름을 쏙 뺀 웰빙 건강 바베큐',
-      imageUrl: 'https://images.unsplash.com/photo-1598908314732-07113901949e?w=500&auto=format&fit=crop&q=60',
+      imageUrl: '/delicious_bbq_chicken.png',
       category: '치킨',
       menus: {
         create: [
-          { name: '매콤 숯불 양념 바베큐', price: 21000, description: '특제 매운 고추장 양념 소스를 발라 구운 시그니처 바베큐', imageUrl: 'https://images.unsplash.com/photo-1598908314732-07113901949e?w=500&auto=format&fit=crop&q=60' },
-          { name: '고소한 소금구이 바베큐', price: 20000, description: '천일염만 뿌려 닭고기 본연의 맛을 극대화한 담백한 맛', imageUrl: 'https://images.unsplash.com/photo-1562967914-608f82629710?w=500&auto=format&fit=crop&q=60' },
-          { name: '치즈 떡사리 추가 바베큐', price: 22000, description: '매콤 바베큐에 모짜렐라 치즈와 쫄깃한 떡사리 추가', imageUrl: 'https://images.unsplash.com/photo-1569058242253-92a9c755a0ec?w=500&auto=format&fit=crop&q=60' }
+          { name: '매콤 숯불 양념 바베큐', price: 21000, description: '특제 매운 고추장 양념 소스를 발라 구운 시그니처 바베큐', imageUrl: '/delicious_bbq_chicken.png' },
+          { name: '고소한 소금구이 바베큐', price: 20000, description: '천일염만 뿌려 닭고기 본연의 맛을 극대화한 담백한 맛', imageUrl: '/delicious_bbq_chicken.png' },
+          { name: '치즈 떡사리 추가 바베큐', price: 22000, description: '매콤 바베큐에 모짜렐라 치즈와 쫄깃한 떡사리 추가', imageUrl: '/delicious_bbq_chicken.png' }
         ]
       }
     }
   });
+
 
   // ==================== [분식] 카테고리 (5개 업소) ====================
   console.log('분식 데이터 추가 중...');
